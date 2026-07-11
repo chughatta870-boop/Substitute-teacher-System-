@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>متبادل ٹیچر سسٹم</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#2563eb">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>📚 Auto Substitute Teacher System</h1>
+      <p>چھٹی پر ٹیچر کی جگہ خودکار متبادل</p>
+    </header>
+
+    <div class="tabs">
+      <button class="tab-btn active" onclick="showTab('timetable', this)">1. ٹائم ٹیبل</button>
+      <button class="tab-btn" onclick="showTab('manage', this)">2. اساتذہ Manage</button>
+      <button class="tab-btn" onclick="showTab('leave', this)">3. چھٹی لگائیں</button>
+      <button class="tab-btn" onclick="showTab('substitute', this)">4. متبادل رپورٹ</button>
+    </div>
+
+    <!-- TIMETABLE TAB -->
+    <div id="timetable" class="tab-content active">
+      <h2>اساتذہ کا ٹائم ٹیبل</h2>
+      <button onclick="loadSampleData()">Sample 9 Teachers Load کریں</button>
+      <button onclick="exportData()">📤 Export JSON</button>
+      <button onclick="shareData()">🔗 Share</button>
+      <div id="timetableGrid"></div>
+    </div>
+
+    <!-- MANAGE TEACHERS TAB -->
+    <div id="manage" class="tab-content">
+      <h2>اساتذہ Add / Edit / Delete</h2>
+      <form id="teacherForm">
+        <label>ٹیچر کا نام:</label>
+        <input type="text" id="teacherName" placeholder="نام لکھیں" required>
+        <label>WhatsApp نمبر:</label>
+        <input type="text" id="teacherPhone" placeholder="92300XXXXXXX" required>
+        <button type="submit">➕ ٹیچر Add کریں</button>
+      </form>
+      <hr>
+      <div id="teacherList"></div>
+    </div>
+
+    <!-- LEAVE TAB -->
+    <div id="leave" class="tab-content">
+      <h2>چھٹی کی انٹری</h2>
+      <form id="leaveForm">
+        <label>ٹیچر کا نام:</label>
+        <select id="leaveTeacher"></select>
+        <label>تاریخ:</label>
+        <input type="date" id="leaveDate" required>
+        <label>Period:</label>
+        <select id="leavePeriod"></select>
+        <label>وجہ:</label>
+        <input type="text" id="leaveReason" placeholder="بیماری، ذاتی کام" required>
+        <button type="submit">چھٹی لگائیں اور متبادل ڈھونڈیں</button>
+      </form>
+      <div id="substituteResult"></div>
+    </div>
+
+    <!-- REPORT TAB -->
+    <div id="substitute" class="tab-content">
+      <h2>متبادل کی ہسٹری</h2>
+      <div id="historyList"></div>
+    </div>
+
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
